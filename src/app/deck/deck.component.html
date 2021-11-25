@@ -1,0 +1,19 @@
+<div class="card-container">
+    <div class="card-button">
+     <button type="button" (click)="reset()" class="btn btn-lg btn-bd-primary">Reset</button>
+     <button type="button" (click)="shuffle()" [disabled]="isDisabled">Shuffle</button>
+     <button type="button" (click)="dealFiveCards(5)" [disabled]="isDisabled">Get five</button>
+   </div>
+    <div class="card-container" *ngIf="isDealed" >
+        <ul class="card-list">
+            <li *ngFor="let card of cards">
+                <div class="card {{card.suit.color}}">
+                    <div class="letter">{{card.letter}}</div>
+                    <div class="suit" [innerHTML]="card.suit.glyph"></div>
+                </div>
+            </li>
+        </ul>
+        <h1 *ngIf="ranking">{{ranking}}</h1>
+    </div>
+</div>
+
